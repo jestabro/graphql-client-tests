@@ -1,2 +1,63 @@
 
-Experiments with a GraphQL client using urql + svelte.
+Initial experiments with a GraphQL client using urql + svelte.
+
+For reasons summarized below (Lazy Query), the initial experiments are using
+the URQL library (https://formidable.com/open-source/urql/) with Svelte.
+
+To run:
+
+Firstly configure a VyOS instance (1.3 or 1.4) with:
+
+set service https api cors allow-origin 'http://localhost:5000'
+
+Then within this repo:
+
+set GRAPHQL_ENDPOINT in src/gql.js to 'https://{{ vyos_host }}/graphql'
+npm install
+npm run dev
+
+Then open a browser window at location 'http://localhost:5000'; enter
+op-mode 'show' commands therein.
+
+---
+
+Mutation examples to follow, pending some debugging ...
+
+===
+
+Lazy Query:
+
+So the above gives a very simple example of client query, begging the
+question: Why is this non-trivial ?
+
+Although the GraphQL specification allows for either a query or mutation to
+implement a data write, the convention is to distinguish them in those
+terms; there is no fundamental difference, other than that mutations are
+necessarily run in series.
+
+However the symmetry is broken in practice among all standard clients, in
+the interest of caching and pagination: mutations are considered a on-off,
+whereas queries maintain the local data store (query variables). A related
+aspect of this is that both Apollo and URQL clients automatically execute a
+query in a rendered component; mutations in either implementation are called
+manually, allowing easy manipulation of passed variables.
+
+In order to have manual control of execution of a query, the Apollo client
+with React bindings provides 'useLazyQuery' which returns a query function,
+which is the sensical behavior.
+
+The problem is that this is not available for the Apollo client with Svelte
+bindings; in fact the Svelte bindings are unsatisfactory on many points,
+regrettably. 
+
+The URQL client has Svelte bindings that feel more refined; I recommend that
+we take a closer look at that client, with the understanding that we can
+switch back to Apollo now that we understand some of the subtleties.
+
+The URQL solution to the above problem of execution on render, although
+vigorously defended by at least one maintainer, is not entirely satisfying,
+but may be workable; meanwhile, there are PR's to the project on the matter
+which look promising.
+
+The example here allows for the initial execution of the show query, and
+exposes the explicit (crude) method of updating query variables.
