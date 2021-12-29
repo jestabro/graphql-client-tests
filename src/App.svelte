@@ -7,11 +7,12 @@
   });
 
   const show_variables = {
-    path: ["version"],
+    path: undefined,
   };
 
   const show = operationStore(SHOW_QUERY,
     show_variables,
+    { pause: true }
   );
 
   query(show);
@@ -22,11 +23,13 @@
     }
     let path_l = path_s.split(' ');
     console.log("show.variables before call:", show.variables);
+    show.context.pause = false;
     show.variables = { ...show.variables, path: path_l };
     console.log("show.variables after call:", show.variables);
   }
 
   let path_str = "version";
+  update_show_query(path_str);
 
 </script>
 
