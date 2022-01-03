@@ -1,6 +1,6 @@
 <script>
-  import { initClient, operationStore, query } from '@urql/svelte';
-  import { GRAPHQL_ENDPOINT, SHOW_QUERY } from './gql';
+  import { initClient, operationStore, query, mutation } from '@urql/svelte';
+  import { GRAPHQL_ENDPOINT, SHOW_QUERY, CONFIG_FILE_SAVE_MUTATION } from './gql';
 
   initClient({
     url: GRAPHQL_ENDPOINT
@@ -10,10 +10,26 @@
     path: undefined,
   };
 
+  const configfile_variables = {
+    fileName: "",
+  };
+
   const show = operationStore(SHOW_QUERY,
     show_variables,
     { pause: true }
   );
+
+  const configFileStore = operationStore(CONFIG_FILE_SAVE_MUTATION,
+    configfile_variables
+  );
+
+  const configFileSave = mutation(configFileStore);
+
+  function config_file_save(file_name) {
+    configFileSave({fileName: file_name}).then(result => {
+      console.log(result.data, result.error);
+    });
+  }
 
   query(show);
 
@@ -30,6 +46,8 @@
 
   let path_str = "version";
   update_show_query(path_str);
+
+  let file_str = "";
 
 </script>
 
@@ -49,6 +67,20 @@
 {/if}
 <p>Enter a show command, such as: 'interfaces detail', without quotes</p>
 <input bind:value={path_str} on:change={() => update_show_query(path_str)}>
+<p>Enter a file name wherein to save the config:</p>
+<input bind:value={file_str} on:change={() => config_file_save(file_str)}>
+{#if $configFileStore.fetching}
+<p>Loading...</p>
+{:else if $configFileStore.error}
+<p>D'oh... {$configFileStore.error.message}</p>
+{:else if $configFileStore.data}
+{#if $configFileStore.data.SaveConfigFile.errors}
+<p>{$configFileStore.data.SaveConfigFile.errors}</p>
+{:else}
+<p>Configuration saved to file:</p>
+<p>{$configFileStore.data.SaveConfigFile.data.fileName}</p>
+{/if}
+{/if}
 </main>
 
 <style>

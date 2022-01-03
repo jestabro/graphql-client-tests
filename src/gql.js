@@ -1,4 +1,4 @@
-export const GRAPHQL_ENDPOINT="https://192.168.122.161/graphql";
+export const GRAPHQL_ENDPOINT="https://elete.xyz/graphql";
 
 export const SHOW_QUERY = `
   query ($path: [String!]!) {
@@ -6,6 +6,17 @@ export const SHOW_QUERY = `
       errors
       data {
         result
+      }
+    }
+  }
+`;
+
+export const CONFIG_FILE_SAVE_MUTATION = `
+  mutation ($fileName: String) {
+    SaveConfigFile(data: {fileName: $fileName}) {
+      errors
+      data {
+        fileName
       }
     }
   }
