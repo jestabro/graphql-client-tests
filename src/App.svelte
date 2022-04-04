@@ -17,6 +17,14 @@
 
   query(show);
 
+  function auth_show_query(key_s) {
+    if (!key_s.length) {
+      return;
+      }
+    $show.context.pause = false;
+    $show.variables = { ...show.variables, key: key_s };
+   }
+
   function update_show_query(path_s) {
     if (!path_s.length) {
       return;
@@ -28,6 +36,7 @@
     console.log("show.variables after call:", show.variables);
   }
 
+  let key_str = "";
   let path_str = "version";
   update_show_query(path_str);
 
@@ -39,7 +48,7 @@
 {#if $show.fetching}
 <p>Loading...</p>
 {:else if $show.error}
-<p>D'oh... {$show.error.message}</p>
+<p>{$show.error.message}</p>
 {:else if $show.data}
 {#if $show.data.Show.errors}
 <p>{$show.data.Show.errors}</p>
@@ -47,6 +56,8 @@
 <p>{$show.data.Show.data.result}</p>
 {/if}
 {/if}
+<p>Enter the API key</p>
+<input bind:value={key_str} on:change={() => auth_show_query(key_str)}>
 <p>Enter a show command, such as: 'interfaces detail', without quotes</p>
 <input bind:value={path_str} on:change={() => update_show_query(path_str)}>
 </main>
