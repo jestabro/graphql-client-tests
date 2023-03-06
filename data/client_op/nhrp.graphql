@@ -1,0 +1,28 @@
+
+query ShowInterfaceNhrp ($key: String) {
+  ShowInterfaceNhrp (data: { key: $key }) {
+    errors
+    op_mode_error {
+      name
+      message
+      vyos_code
+    }
+    data {
+      result
+    }
+  }
+}
+
+query ShowTunnelNhrp ($key: String) {
+  ShowTunnelNhrp (data: { key: $key }) {
+    errors
+    op_mode_error {
+      name
+      message
+      vyos_code
+    }
+    data {
+      result
+    }
+  }
+}

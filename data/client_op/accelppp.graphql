@@ -1,0 +1,28 @@
+
+query ShowSessionsAccelppp ($key: String, $protocol: String!) {
+  ShowSessionsAccelppp (data: { key: $key, protocol: $protocol }) {
+    errors
+    op_mode_error {
+      name
+      message
+      vyos_code
+    }
+    data {
+      result
+    }
+  }
+}
+
+query ShowStatisticsAccelppp ($key: String, $protocol: String!) {
+  ShowStatisticsAccelppp (data: { key: $key, protocol: $protocol }) {
+    errors
+    op_mode_error {
+      name
+      message
+      vyos_code
+    }
+    data {
+      result
+    }
+  }
+}

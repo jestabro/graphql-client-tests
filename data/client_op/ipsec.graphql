@@ -1,0 +1,56 @@
+
+mutation ResetPeerIpsec ($key: String, $peer: String!, $tunnel: String = null) {
+  ResetPeerIpsec (data: { key: $key, peer: $peer, tunnel: $tunnel }) {
+    errors
+    op_mode_error {
+      name
+      message
+      vyos_code
+    }
+    data {
+      result
+    }
+  }
+}
+
+query ShowConnectionsIpsec ($key: String) {
+  ShowConnectionsIpsec (data: { key: $key }) {
+    errors
+    op_mode_error {
+      name
+      message
+      vyos_code
+    }
+    data {
+      result
+    }
+  }
+}
+
+query ShowConnectionsSummaryIpsec ($key: String) {
+  ShowConnectionsSummaryIpsec (data: { key: $key }) {
+    errors
+    op_mode_error {
+      name
+      message
+      vyos_code
+    }
+    data {
+      result
+    }
+  }
+}
+
+query ShowSaIpsec ($key: String) {
+  ShowSaIpsec (data: { key: $key }) {
+    errors
+    op_mode_error {
+      name
+      message
+      vyos_code
+    }
+    data {
+      result
+    }
+  }
+}

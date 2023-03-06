@@ -1,0 +1,84 @@
+
+mutation AddImageContainer ($key: String, $name: String!) {
+  AddImageContainer (data: { key: $key, name: $name }) {
+    errors
+    op_mode_error {
+      name
+      message
+      vyos_code
+    }
+    data {
+      result
+    }
+  }
+}
+
+mutation DeleteImageContainer ($key: String, $name: String!) {
+  DeleteImageContainer (data: { key: $key, name: $name }) {
+    errors
+    op_mode_error {
+      name
+      message
+      vyos_code
+    }
+    data {
+      result
+    }
+  }
+}
+
+mutation RestartContainer ($key: String, $name: String!) {
+  RestartContainer (data: { key: $key, name: $name }) {
+    errors
+    op_mode_error {
+      name
+      message
+      vyos_code
+    }
+    data {
+      result
+    }
+  }
+}
+
+query ShowContainerContainer ($key: String) {
+  ShowContainerContainer (data: { key: $key }) {
+    errors
+    op_mode_error {
+      name
+      message
+      vyos_code
+    }
+    data {
+      result
+    }
+  }
+}
+
+query ShowImageContainer ($key: String) {
+  ShowImageContainer (data: { key: $key }) {
+    errors
+    op_mode_error {
+      name
+      message
+      vyos_code
+    }
+    data {
+      result
+    }
+  }
+}
+
+query ShowNetworkContainer ($key: String) {
+  ShowNetworkContainer (data: { key: $key }) {
+    errors
+    op_mode_error {
+      name
+      message
+      vyos_code
+    }
+    data {
+      result
+    }
+  }
+}

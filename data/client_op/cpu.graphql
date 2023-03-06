@@ -1,0 +1,28 @@
+
+query ShowCpu ($key: String) {
+  ShowCpu (data: { key: $key }) {
+    errors
+    op_mode_error {
+      name
+      message
+      vyos_code
+    }
+    data {
+      result
+    }
+  }
+}
+
+query ShowSummaryCpu ($key: String) {
+  ShowSummaryCpu (data: { key: $key }) {
+    errors
+    op_mode_error {
+      name
+      message
+      vyos_code
+    }
+    data {
+      result
+    }
+  }
+}

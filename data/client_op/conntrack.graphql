@@ -1,0 +1,28 @@
+
+query ShowConntrack ($key: String, $family: FamilyConntrack!) {
+  ShowConntrack (data: { key: $key, family: $family }) {
+    errors
+    op_mode_error {
+      name
+      message
+      vyos_code
+    }
+    data {
+      result
+    }
+  }
+}
+
+query ShowStatisticsConntrack ($key: String) {
+  ShowStatisticsConntrack (data: { key: $key }) {
+    errors
+    op_mode_error {
+      name
+      message
+      vyos_code
+    }
+    data {
+      result
+    }
+  }
+}

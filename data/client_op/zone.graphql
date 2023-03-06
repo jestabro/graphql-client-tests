@@ -1,0 +1,14 @@
+
+query ShowZone ($key: String, $zone: String = null) {
+  ShowZone (data: { key: $key, zone: $zone }) {
+    errors
+    op_mode_error {
+      name
+      message
+      vyos_code
+    }
+    data {
+      result
+    }
+  }
+}

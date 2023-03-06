@@ -1,0 +1,14 @@
+
+query ShowVrf ($key: String, $name: String = null) {
+  ShowVrf (data: { key: $key, name: $name }) {
+    errors
+    op_mode_error {
+      name
+      message
+      vyos_code
+    }
+    data {
+      result
+    }
+  }
+}

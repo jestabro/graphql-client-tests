@@ -1,0 +1,14 @@
+
+query ShowUptime ($key: String) {
+  ShowUptime (data: { key: $key }) {
+    errors
+    op_mode_error {
+      name
+      message
+      vyos_code
+    }
+    data {
+      result
+    }
+  }
+}

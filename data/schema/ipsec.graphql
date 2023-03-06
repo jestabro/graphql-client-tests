@@ -1,0 +1,78 @@
+
+input ResetPeerIpsecInput {
+    key: String
+    peer: String!
+    tunnel: String = null
+}
+
+type ResetPeerIpsec {
+    result: Generic
+}
+
+type ResetPeerIpsecResult {
+    data: ResetPeerIpsec
+    op_mode_error: OpModeError
+    success: Boolean!
+    errors: [String]
+}
+
+extend type Mutation {
+    ResetPeerIpsec(data: ResetPeerIpsecInput) : ResetPeerIpsecResult @genopmutation
+}
+
+input ShowConnectionsIpsecInput {
+    key: String
+}
+
+type ShowConnectionsIpsec {
+    result: Generic
+}
+
+type ShowConnectionsIpsecResult {
+    data: ShowConnectionsIpsec
+    op_mode_error: OpModeError
+    success: Boolean!
+    errors: [String]
+}
+
+extend type Query {
+    ShowConnectionsIpsec(data: ShowConnectionsIpsecInput) : ShowConnectionsIpsecResult @genopquery
+}
+
+input ShowConnectionsSummaryIpsecInput {
+    key: String
+}
+
+type ShowConnectionsSummaryIpsec {
+    result: Generic
+}
+
+type ShowConnectionsSummaryIpsecResult {
+    data: ShowConnectionsSummaryIpsec
+    op_mode_error: OpModeError
+    success: Boolean!
+    errors: [String]
+}
+
+extend type Query {
+    ShowConnectionsSummaryIpsec(data: ShowConnectionsSummaryIpsecInput) : ShowConnectionsSummaryIpsecResult @genopquery
+}
+
+input ShowSaIpsecInput {
+    key: String
+}
+
+type ShowSaIpsec {
+    result: Generic
+}
+
+type ShowSaIpsecResult {
+    data: ShowSaIpsec
+    op_mode_error: OpModeError
+    success: Boolean!
+    errors: [String]
+}
+
+extend type Query {
+    ShowSaIpsec(data: ShowSaIpsecInput) : ShowSaIpsecResult @genopquery
+}

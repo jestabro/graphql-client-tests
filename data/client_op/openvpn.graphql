@@ -1,0 +1,28 @@
+
+mutation ResetOpenvpn ($key: String, $interface: String!) {
+  ResetOpenvpn (data: { key: $key, interface: $interface }) {
+    errors
+    op_mode_error {
+      name
+      message
+      vyos_code
+    }
+    data {
+      result
+    }
+  }
+}
+
+query ShowOpenvpn ($key: String, $mode: ModeOpenvpn!) {
+  ShowOpenvpn (data: { key: $key, mode: $mode }) {
+    errors
+    op_mode_error {
+      name
+      message
+      vyos_code
+    }
+    data {
+      result
+    }
+  }
+}
