@@ -1,0 +1,16 @@
+
+npm install --save-dev @graphql-codegen/cli @graphql-codegen/typescript @graphql-codegen/typescript-operations @graphql-codegen/typed-document-node
+
+npm install graphql @urql/core cross-fetch
+
+add scripts to packages.json
+
+---
+get directories schema and client_op
+
+npm run codegen
+
+add index.ts
+
+ref:
+https://github.com/dotansimha/graphql-typed-document-node#how-to-use
