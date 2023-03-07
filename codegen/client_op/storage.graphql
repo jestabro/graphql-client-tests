@@ -1,6 +1,7 @@
 
 query ShowStorage ($key: String) {
   ShowStorage (data: { key: $key }) {
+    success
     errors
     op_mode_error {
       name

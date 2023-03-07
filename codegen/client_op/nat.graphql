@@ -1,6 +1,7 @@
 
 query ShowRulesNat ($key: String, $direction: DirectionNat!, $family: FamilyNat!) {
   ShowRulesNat (data: { key: $key, direction: $direction, family: $family }) {
+    success
     errors
     op_mode_error {
       name
@@ -15,6 +16,7 @@ query ShowRulesNat ($key: String, $direction: DirectionNat!, $family: FamilyNat!
 
 query ShowStatisticsNat ($key: String, $direction: DirectionNat!, $family: FamilyNat!) {
   ShowStatisticsNat (data: { key: $key, direction: $direction, family: $family }) {
+    success
     errors
     op_mode_error {
       name
@@ -29,6 +31,7 @@ query ShowStatisticsNat ($key: String, $direction: DirectionNat!, $family: Famil
 
 query ShowTranslationsNat ($key: String, $direction: DirectionNat!, $family: FamilyNat!, $address: String = null, $verbose: Boolean = false) {
   ShowTranslationsNat (data: { key: $key, direction: $direction, family: $family, address: $address, verbose: $verbose }) {
+    success
     errors
     op_mode_error {
       name

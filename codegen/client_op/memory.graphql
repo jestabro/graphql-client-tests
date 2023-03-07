@@ -1,6 +1,7 @@
 
 query ShowMemory ($key: String) {
   ShowMemory (data: { key: $key }) {
+    success
     errors
     op_mode_error {
       name

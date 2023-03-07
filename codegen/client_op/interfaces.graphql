@@ -1,6 +1,7 @@
 
 query ShowInterfaces ($key: String, $intf_name: String = null, $intf_type: String = null, $vif: Boolean = false, $vrrp: Boolean = false) {
   ShowInterfaces (data: { key: $key, intf_name: $intf_name, intf_type: $intf_type, vif: $vif, vrrp: $vrrp }) {
+    success
     errors
     op_mode_error {
       name
@@ -15,6 +16,7 @@ query ShowInterfaces ($key: String, $intf_name: String = null, $intf_type: Strin
 
 query ShowCountersInterfaces ($key: String, $intf_name: String = null, $intf_type: String = null, $vif: Boolean = false, $vrrp: Boolean = false) {
   ShowCountersInterfaces (data: { key: $key, intf_name: $intf_name, intf_type: $intf_type, vif: $vif, vrrp: $vrrp }) {
+    success
     errors
     op_mode_error {
       name
@@ -29,6 +31,7 @@ query ShowCountersInterfaces ($key: String, $intf_name: String = null, $intf_typ
 
 query ShowSummaryInterfaces ($key: String, $intf_name: String = null, $intf_type: String = null, $vif: Boolean = false, $vrrp: Boolean = false) {
   ShowSummaryInterfaces (data: { key: $key, intf_name: $intf_name, intf_type: $intf_type, vif: $vif, vrrp: $vrrp }) {
+    success
     errors
     op_mode_error {
       name

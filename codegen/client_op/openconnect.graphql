@@ -1,6 +1,7 @@
 
 query ShowSessionsOpenconnect ($key: String) {
   ShowSessionsOpenconnect (data: { key: $key }) {
+    success
     errors
     op_mode_error {
       name

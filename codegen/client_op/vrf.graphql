@@ -1,6 +1,7 @@
 
 query ShowVrf ($key: String, $name: String = null) {
   ShowVrf (data: { key: $key, name: $name }) {
+    success
     errors
     op_mode_error {
       name

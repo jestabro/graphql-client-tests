@@ -1,6 +1,7 @@
 
 mutation ResetPeerIpsec ($key: String, $peer: String!, $tunnel: String = null) {
   ResetPeerIpsec (data: { key: $key, peer: $peer, tunnel: $tunnel }) {
+    success
     errors
     op_mode_error {
       name
@@ -15,6 +16,7 @@ mutation ResetPeerIpsec ($key: String, $peer: String!, $tunnel: String = null) {
 
 query ShowConnectionsIpsec ($key: String) {
   ShowConnectionsIpsec (data: { key: $key }) {
+    success
     errors
     op_mode_error {
       name
@@ -29,6 +31,7 @@ query ShowConnectionsIpsec ($key: String) {
 
 query ShowConnectionsSummaryIpsec ($key: String) {
   ShowConnectionsSummaryIpsec (data: { key: $key }) {
+    success
     errors
     op_mode_error {
       name
@@ -43,6 +46,7 @@ query ShowConnectionsSummaryIpsec ($key: String) {
 
 query ShowSaIpsec ($key: String) {
   ShowSaIpsec (data: { key: $key }) {
+    success
     errors
     op_mode_error {
       name

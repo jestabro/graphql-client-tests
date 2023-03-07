@@ -1,6 +1,7 @@
 
 query ShowConntrack ($key: String, $family: FamilyConntrack!) {
   ShowConntrack (data: { key: $key, family: $family }) {
+    success
     errors
     op_mode_error {
       name
@@ -15,6 +16,7 @@ query ShowConntrack ($key: String, $family: FamilyConntrack!) {
 
 query ShowStatisticsConntrack ($key: String) {
   ShowStatisticsConntrack (data: { key: $key }) {
+    success
     errors
     op_mode_error {
       name

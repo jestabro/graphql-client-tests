@@ -1,6 +1,7 @@
 
 mutation ResetOpenvpn ($key: String, $interface: String!) {
   ResetOpenvpn (data: { key: $key, interface: $interface }) {
+    success
     errors
     op_mode_error {
       name
@@ -15,6 +16,7 @@ mutation ResetOpenvpn ($key: String, $interface: String!) {
 
 query ShowOpenvpn ($key: String, $mode: ModeOpenvpn!) {
   ShowOpenvpn (data: { key: $key, mode: $mode }) {
+    success
     errors
     op_mode_error {
       name

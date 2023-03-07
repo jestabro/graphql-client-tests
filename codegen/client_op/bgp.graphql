@@ -1,6 +1,7 @@
 
 query ShowNeighborsBgp ($key: String, $family: FamilyBgp!, $peer: String = null, $vrf: String = null) {
   ShowNeighborsBgp (data: { key: $key, family: $family, peer: $peer, vrf: $vrf }) {
+    success
     errors
     op_mode_error {
       name

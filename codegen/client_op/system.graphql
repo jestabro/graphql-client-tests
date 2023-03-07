@@ -1,6 +1,7 @@
 
 query ShowUpdateSystem ($key: String) {
   ShowUpdateSystem (data: { key: $key }) {
+    success
     errors
     op_mode_error {
       name

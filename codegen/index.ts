@@ -3,15 +3,18 @@ import { createClient } from "@urql/core";
 import { queryStore } from "@urql/svelte";
 
 import { ShowCpuDocument, ShowVersionDocument, ShowRouteDocument, FamilyRoute } from "./types";
+import { FamilyNeighbor, ResetNeighborDocument } from "./types";
 
 const client = createClient({
-    url: "https://euporia.xyz/graphql",
+//    url: "https://euporia.xyz/graphql",
+    url: "https://mondotopos.net/graphql",
     fetch,
 });
 
-/*client
+/*
+client
     .query(ShowRouteDocument, {
-        key: "werty",
+        key: "Ar1st2rchu",
         family: FamilyRoute.Inet
     })
     .toPromise()
@@ -19,8 +22,19 @@ const client = createClient({
 */
 
 client
+    .mutation(ResetNeighborDocument, {
+        key: "Ar1st2rchu",
+        family: FamilyNeighbor.Inet
+    })
+    .toPromise()
+    .then(({ data }) => console.log(data?.ResetNeighbor));
+
+
+/*
+client
     .query(ShowCpuDocument, {
-        key: "werty",
+        key: "Ar1st2rchu",
     })
     .toPromise()
     .then(({ data }) => console.log(data?.ShowCpu?.data?.result));
+*/

@@ -1,6 +1,7 @@
 
 query ShowForwardingStatisticsDns ($key: String) {
   ShowForwardingStatisticsDns (data: { key: $key }) {
+    success
     errors
     op_mode_error {
       name

@@ -1,6 +1,7 @@
 
 query ShowVersion ($key: String, $funny: Boolean = false) {
   ShowVersion (data: { key: $key, funny: $funny }) {
+    success
     errors
     op_mode_error {
       name

@@ -1,6 +1,7 @@
 
 query ShowRoute ($key: String, $family: FamilyRoute!, $net: String = null, $table: Int = null, $protocol: String = null, $vrf: String = null, $tag: String = null) {
   ShowRoute (data: { key: $key, family: $family, net: $net, table: $table, protocol: $protocol, vrf: $vrf, tag: $tag }) {
+    success
     errors
     op_mode_error {
       name
@@ -15,6 +16,7 @@ query ShowRoute ($key: String, $family: FamilyRoute!, $net: String = null, $tabl
 
 query ShowSummaryRoute ($key: String, $family: FamilyRoute!, $table: Int = null, $vrf: String = null) {
   ShowSummaryRoute (data: { key: $key, family: $family, table: $table, vrf: $vrf }) {
+    success
     errors
     op_mode_error {
       name

@@ -1,6 +1,7 @@
 
 query ShowSessionsAccelppp ($key: String, $protocol: String!) {
   ShowSessionsAccelppp (data: { key: $key, protocol: $protocol }) {
+    success
     errors
     op_mode_error {
       name
@@ -15,6 +16,7 @@ query ShowSessionsAccelppp ($key: String, $protocol: String!) {
 
 query ShowStatisticsAccelppp ($key: String, $protocol: String!) {
   ShowStatisticsAccelppp (data: { key: $key, protocol: $protocol }) {
+    success
     errors
     op_mode_error {
       name
