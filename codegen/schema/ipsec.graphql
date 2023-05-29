@@ -1,4 +1,23 @@
 
+input ResetAllPeersIpsecInput {
+    key: String
+}
+
+type ResetAllPeersIpsec {
+    result: Generic
+}
+
+type ResetAllPeersIpsecResult {
+    data: ResetAllPeersIpsec
+    op_mode_error: OpModeError
+    success: Boolean!
+    errors: [String]
+}
+
+extend type Mutation {
+    ResetAllPeersIpsec(data: ResetAllPeersIpsecInput) : ResetAllPeersIpsecResult @genopmutation
+}
+
 input ResetPeerIpsecInput {
     key: String
     peer: String!
@@ -18,6 +37,69 @@ type ResetPeerIpsecResult {
 
 extend type Mutation {
     ResetPeerIpsec(data: ResetPeerIpsecInput) : ResetPeerIpsecResult @genopmutation
+}
+
+input ResetProfileAllIpsecInput {
+    key: String
+    profile: String!
+    tunnel: String!
+}
+
+type ResetProfileAllIpsec {
+    result: Generic
+}
+
+type ResetProfileAllIpsecResult {
+    data: ResetProfileAllIpsec
+    op_mode_error: OpModeError
+    success: Boolean!
+    errors: [String]
+}
+
+extend type Mutation {
+    ResetProfileAllIpsec(data: ResetProfileAllIpsecInput) : ResetProfileAllIpsecResult @genopmutation
+}
+
+input ResetProfileDstIpsecInput {
+    key: String
+    profile: String!
+    tunnel: String!
+    nbma_dst: String!
+}
+
+type ResetProfileDstIpsec {
+    result: Generic
+}
+
+type ResetProfileDstIpsecResult {
+    data: ResetProfileDstIpsec
+    op_mode_error: OpModeError
+    success: Boolean!
+    errors: [String]
+}
+
+extend type Mutation {
+    ResetProfileDstIpsec(data: ResetProfileDstIpsecInput) : ResetProfileDstIpsecResult @genopmutation
+}
+
+input ResetRaIpsecInput {
+    key: String
+    username: String = null
+}
+
+type ResetRaIpsec {
+    result: Generic
+}
+
+type ResetRaIpsecResult {
+    data: ResetRaIpsec
+    op_mode_error: OpModeError
+    success: Boolean!
+    errors: [String]
+}
+
+extend type Mutation {
+    ResetRaIpsec(data: ResetRaIpsecInput) : ResetRaIpsecResult @genopmutation
 }
 
 input ShowConnectionsIpsecInput {
@@ -58,6 +140,46 @@ extend type Query {
     ShowConnectionsSummaryIpsec(data: ShowConnectionsSummaryIpsecInput) : ShowConnectionsSummaryIpsecResult @genopquery
 }
 
+input ShowRaDetailIpsecInput {
+    key: String
+    username: String = null
+    conn_id: String = null
+}
+
+type ShowRaDetailIpsec {
+    result: Generic
+}
+
+type ShowRaDetailIpsecResult {
+    data: ShowRaDetailIpsec
+    op_mode_error: OpModeError
+    success: Boolean!
+    errors: [String]
+}
+
+extend type Query {
+    ShowRaDetailIpsec(data: ShowRaDetailIpsecInput) : ShowRaDetailIpsecResult @genopquery
+}
+
+input ShowRaSummaryIpsecInput {
+    key: String
+}
+
+type ShowRaSummaryIpsec {
+    result: Generic
+}
+
+type ShowRaSummaryIpsecResult {
+    data: ShowRaSummaryIpsec
+    op_mode_error: OpModeError
+    success: Boolean!
+    errors: [String]
+}
+
+extend type Query {
+    ShowRaSummaryIpsec(data: ShowRaSummaryIpsecInput) : ShowRaSummaryIpsecResult @genopquery
+}
+
 input ShowSaIpsecInput {
     key: String
 }
@@ -75,4 +197,23 @@ type ShowSaIpsecResult {
 
 extend type Query {
     ShowSaIpsec(data: ShowSaIpsecInput) : ShowSaIpsecResult @genopquery
+}
+
+input ShowSaDetailIpsecInput {
+    key: String
+}
+
+type ShowSaDetailIpsec {
+    result: Generic
+}
+
+type ShowSaDetailIpsecResult {
+    data: ShowSaDetailIpsec
+    op_mode_error: OpModeError
+    success: Boolean!
+    errors: [String]
+}
+
+extend type Query {
+    ShowSaDetailIpsec(data: ShowSaDetailIpsecInput) : ShowSaDetailIpsecResult @genopquery
 }

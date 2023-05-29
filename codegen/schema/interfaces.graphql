@@ -1,4 +1,50 @@
 
+input ClearCountersInterfacesInput {
+    key: String
+    intf_name: String = null
+    intf_type: String = null
+    vif: Boolean = false
+    vrrp: Boolean = false
+}
+
+type ClearCountersInterfaces {
+    result: Generic
+}
+
+type ClearCountersInterfacesResult {
+    data: ClearCountersInterfaces
+    op_mode_error: OpModeError
+    success: Boolean!
+    errors: [String]
+}
+
+extend type Mutation {
+    ClearCountersInterfaces(data: ClearCountersInterfacesInput) : ClearCountersInterfacesResult @genopmutation
+}
+
+input ResetCountersInterfacesInput {
+    key: String
+    intf_name: String = null
+    intf_type: String = null
+    vif: Boolean = false
+    vrrp: Boolean = false
+}
+
+type ResetCountersInterfaces {
+    result: Generic
+}
+
+type ResetCountersInterfacesResult {
+    data: ResetCountersInterfaces
+    op_mode_error: OpModeError
+    success: Boolean!
+    errors: [String]
+}
+
+extend type Mutation {
+    ResetCountersInterfaces(data: ResetCountersInterfacesInput) : ResetCountersInterfacesResult @genopmutation
+}
+
 input ShowInterfacesInput {
     key: String
     intf_name: String = null

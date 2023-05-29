@@ -2,13 +2,45 @@
 enum FamilyBgp {
     inet
     inet6
+    l2vpn
+}
+
+enum FamilyModifierBgp {
+    unicast
+    labeled_unicast
+    multicast
+    vpn
+    flowspec
+}
+
+input ShowBgpInput {
+    key: String
+    family: FamilyBgp!
+    family_modifier: FamilyModifierBgp!
+    prefix: String = null
+    longer_prefixes: Boolean = false
+    best_path: Boolean = false
+    regex: String = null
+    vrf: String = null
+}
+
+type ShowBgp {
+    result: Generic
+}
+
+type ShowBgpResult {
+    data: ShowBgp
+    op_mode_error: OpModeError
+    success: Boolean!
+    errors: [String]
+}
+
+extend type Query {
+    ShowBgp(data: ShowBgpInput) : ShowBgpResult @genopquery
 }
 
 input ShowNeighborsBgpInput {
     key: String
-    family: FamilyBgp!
-    peer: String = null
-    vrf: String = null
 }
 
 type ShowNeighborsBgp {
@@ -24,4 +56,23 @@ type ShowNeighborsBgpResult {
 
 extend type Query {
     ShowNeighborsBgp(data: ShowNeighborsBgpInput) : ShowNeighborsBgpResult @genopquery
+}
+
+input ShowSummaryBgpInput {
+    key: String
+}
+
+type ShowSummaryBgp {
+    result: Generic
+}
+
+type ShowSummaryBgpResult {
+    data: ShowSummaryBgp
+    op_mode_error: OpModeError
+    success: Boolean!
+    errors: [String]
+}
+
+extend type Query {
+    ShowSummaryBgp(data: ShowSummaryBgpInput) : ShowSummaryBgpResult @genopquery
 }
